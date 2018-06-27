@@ -1,0 +1,11 @@
+<archetype-catalog 
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd">
+  <archetypes>
+    <archetype>
+      <groupId>com.sg</groupId>
+      <artifactId>spring-heroku-archetype</artifactId>
+      <version>0.0.1</version>
+      <description>local archetype</description>
+    </archetype>
+  </archetypes>
+</archetype-catalog>
