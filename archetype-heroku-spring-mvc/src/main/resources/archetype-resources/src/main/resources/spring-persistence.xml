@@ -17,18 +17,12 @@
     <!-- Bean definitions go here -->
     <bean id="recordDao" class="${package}.dao.RecordDaoMemImpl"/>
     
-    <!-- If you register a free Postgres addon - you can uncomment the below to persist to a postgres db 
-        -->
+    <!-- If you register a free Postgres addon - you can uncomment the below to persist to a postgres db -->
     <!--<bean id="recordDao" class="com.sg.heroku.webportal.dao.RecordDaoPostgresImpl"/>-->
     
     
-    <!-- If you register a free MySQL addon - you can uncomment the below to persist to a mysql db -->
-<!--     #1 Use annotation-driven transactions 
-    <tx:annotation-driven />
-    
-     #2 Define Data Source 
-    <bean id="dataSourceBean" class="org.apache.commons.dbcp2.BasicDataSource">
-         the next part describes your database location, and login info! 
+    <!-- If you register a free MySQL addon - you can uncomment the below to persist to a mysql db
+            the next part describes your database location, and login info! 
         
          
             usually once you configre a heroku db addon you get a huge long db string in your config variables for your app.
@@ -41,31 +35,32 @@
             
             Once you do that, the Spring config should pull them in as variables below, and do some setter injection on your dao.
             This is of course assuming you've already connected to the above and created the right tables for your dao to work against!
-        
+        -->
 
-        <property name="url" value="jdbc:${DB_URL}" />
-        <property name="username" value="${DB_USR}" />
-        <property name="password" value="${DB_PWD}" />
-         this describes WHAT KIND of db you're connecting too 
+<!-- 
+    <tx:annotation-driven />
+    <context:property-placeholder location="classpath:application.properties" />
+    <bean id="dataSourceBean" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="url" value="jdbc:${my.database.location}" />
+        <property name="username" value="${my.database.username}" />
+        <property name="password" value="${my.database.password}" />
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-         define the basics of the connection pool 
-        <property name="initialSize" value="5" />  this describes our db cxn pool size 
-        <property name="maxTotal" value="20" />  so does this 
+        <property name="initialSize" value="5" />
+        <property name="maxTotal" value="20" />
     </bean>
     
-     #3 Define Transaction Manager 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSourceBean" />
     </bean>
     
-     #4 defining jdbcTemplate 
     <bean id="jdbcTemplateBean" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSourceBean" />
     </bean>
     
     <bean id="daoBean" class="${package}.dao.RecordDaoMySQLImpl">
         <property name="jdbcTemplate" ref="jdbcTemplateBean" />
-    </bean>-->
+    </bean>
+ -->
 
     
 </beans>

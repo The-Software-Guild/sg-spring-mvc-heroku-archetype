@@ -34,7 +34,7 @@ public class MainController {
     
     @RequestMapping(value = "/addForm", method = RequestMethod.POST)
     public String addFormProcess(HttpServletRequest req) {
-        String recordInfo = req.getParameter("recordInfo");
+        String recordInfo = req.getParameter("record-info");
         if(recordInfo!= null && !recordInfo.isEmpty()){
             this.dao.addRecord(new Record(0, recordInfo));
             return "redirect:/";
